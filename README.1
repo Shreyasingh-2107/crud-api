@@ -1,0 +1,33 @@
+# Containerised CRUD REST API
+
+## Project Description
+A REST API with full CRUD functionality built with Node.js + Express, PostgreSQL database, and Nginx reverse proxy. Each service runs in a separate Docker container managed by Docker Compose.
+
+## Tech Stack
+- Node.js + Express (API)
+- PostgreSQL (Database)
+- Nginx (Reverse Proxy)
+- Docker + Docker Compose
+
+## How to Run
+```bash
+cp .env.example .env
+docker compose up --build -d
+```
+API runs at: http://localhost
+
+## Endpoints
+- GET /api/items — Get all items
+- POST /api/items — Create item
+- PUT /api/items/:id — Update item
+- DELETE /api/items/:id — Delete item
+- GET /api/users — Get all users
+- POST /api/users — Create user
+- PUT /api/users/:id — Update user
+- DELETE /api/users/:id — Delete user
+
+## Postman Collection
+Included in repository: postman_collection.json
+
+## Docker Hub
+docker.io/Shreyasingh-2107/crud-api:latest

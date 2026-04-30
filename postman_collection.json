@@ -1,0 +1,144 @@
+{
+  "info": {
+    "name": "CRUD REST API – Containerised",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "description": "Complete CRUD API collection for the containerised web services assignment. Base URL: http://localhost",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "🔍 Health & Info",
+      "item": [
+        {
+          "name": "Root – API Info",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/",
+            "description": "Returns API version and available endpoints"
+          }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/health",
+            "description": "Returns service and DB connection status"
+          }
+        }
+      ]
+    },
+    {
+      "name": "📦 Items",
+      "item": [
+        {
+          "name": "Get All Items",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/items",
+            "description": "Retrieve all items ordered by creation date"
+          }
+        },
+        {
+          "name": "Get Item by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/items/1",
+            "description": "Retrieve a single item by its ID"
+          }
+        },
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/items",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Noise Cancelling Headphones\",\n  \"description\": \"Over-ear, 40hr battery, ANC\",\n  \"price\": 199.99,\n  \"quantity\": 50\n}"
+            },
+            "description": "Create a new item. Required: name"
+          }
+        },
+        {
+          "name": "Update Item",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/api/items/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 1199.99,\n  \"quantity\": 20\n}"
+            },
+            "description": "Update any fields of an item by ID (partial update supported)"
+          }
+        },
+        {
+          "name": "Delete Item",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/items/1",
+            "description": "Delete an item by ID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "👤 Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/users",
+            "description": "Retrieve all users (passwords excluded)"
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/users/1",
+            "description": "Retrieve a single user by ID"
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/users",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Eve Engineer\",\n  \"email\": \"eve@example.com\",\n  \"role\": \"user\"\n}"
+            },
+            "description": "Create a new user. Required: name, email. Role: admin | user | moderator"
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/api/users/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Super Admin\",\n  \"role\": \"admin\"\n}"
+            },
+            "description": "Update user fields by ID (partial update supported)"
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/users/2",
+            "description": "Delete a user by ID"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -34,4 +34,4 @@ All list endpoints support pagination query params:
 Included in repository: postman_collection.json
 
 ## Docker Hub
-docker.io/Shreyasingh-2107/crud-api:latest
+https://hub.docker.com/r/shreya0721/crud-api
